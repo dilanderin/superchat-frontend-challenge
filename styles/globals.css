@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-gradient-to-r from-[#FAD961] to-[#F76B1C] text-white p-5 leading-tight;
+    font-family: 'Mulish', sans-serif;
+  }
+
+  h1 {
+    @apply text-4xl font-bold;
+  }
+
+  p {
+    @apply text-lg font-normal;
+  }
+}
