@@ -15,6 +15,7 @@ import CryptoJS from 'crypto-js';
 const Home = () => {
   const [displayColorPicker, setDisplayColorPicker] = useState(false);
   const [doesExists, setDoesExists] = useState(true);
+  const [disabled, setDisabled] = useState(false);
   const [form, setForm] = useState({
     color: '#a52a2a',
     username: '',
@@ -41,6 +42,7 @@ const Home = () => {
   } = useSelector(({ repository }) => ({ repository }));
 
   useEffect(() => {
+    setDisabled(true);
     if (
       repoList?.length > 0 &&
       repoList?.some(({ name }) => name === form.repo)
@@ -61,6 +63,8 @@ const Home = () => {
     ) {
       setDoesExists(false);
     }
+
+    setDisabled(false);
   }, [repoList]);
 
   const handleSubmit = (e) => {
@@ -150,16 +154,16 @@ const Home = () => {
             </>
           ) : null}
 
-          <Button type="submit" disabled={loading}>
+          <Button type="submit" disabled={loading || disabled}>
             Create the card
           </Button>
 
           {!doesExists ? (
             <div
-              class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 mt-3"
+              className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 mt-3"
               role="alert"
             >
-              <strong class="font-bold">
+              <strong className="font-bold">
                 Username or repository does not exists
               </strong>
             </div>
