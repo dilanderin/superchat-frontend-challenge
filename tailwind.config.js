@@ -1,12 +1,14 @@
 module.exports = {
-  mode: 'jit',
   content: [
-    './pages/**/*.{js,ts,jsx,tsx}',
-    './components/**/*.{js,ts,jsx,tsx}',
+    './src/**/*.{js,ts,jsx,tsx}',
+    // Add extra paths here
   ],
   theme: {
     theme: {
       minWidth: {
+        '1/2': '50%',
+      },
+      maxWidth: {
         '1/2': '50%',
       },
       extend: {

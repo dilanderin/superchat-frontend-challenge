@@ -4,7 +4,7 @@
 
 @layer base {
   body {
-    @apply bg-gradient-to-r from-[#FAD961] to-[#F76B1C] text-white p-5 leading-tight;
+    @apply bg-[#a52a2a] text-white p-5 leading-tight;
     font-family: 'Mulish', sans-serif;
   }
 
@@ -14,5 +14,9 @@
 
   p {
     @apply text-lg font-normal;
+  }
+
+  main {
+    @apply text-gray-700;
   }
 }

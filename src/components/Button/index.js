@@ -1,11 +1,13 @@
 import PropTypes from 'prop-types';
 
-export const Button = ({ type, children, ...others }) => {
+export const Button = ({ type, children, small, ...others }) => {
   return (
     <button
       type={type}
       {...others}
-      className="mt-10 w-full bg-amber-500 hover:bg-amber-400 text-white font-bold py-2 px-4 border-b-4 border-amber-700 hover:border-amber-500 rounded"
+      className={`mt-10 ${
+        small ? null : 'w-full'
+      } bg-green-500 hover:bg-green-400 text-white font-bold py-4 px-4 rounded`}
     >
       {children}
     </button>

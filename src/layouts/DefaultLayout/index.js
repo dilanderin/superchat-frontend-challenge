@@ -1,6 +1,6 @@
 import Head from 'next/head';
-import PropTypes from 'prop-types';
 import { Header } from '../../components/Header';
+import { useRouter } from 'next/router';
 
 const DefaultLayout = ({ children }) => (
   <>
@@ -14,15 +14,13 @@ const DefaultLayout = ({ children }) => (
     </Head>
 
     <div className="flex flex-col items-center justify-center w-full h-auto mt-10">
-      <Header />
+      {!useRouter().pathname.includes('repo') ? <Header /> : null}
 
-      {children}
+      <main className="bg-white mt-10 rounded-lg p-10 shadow-2xl shadow-red-900 lg:max-w-[50%] relative">
+        {children}
+      </main>
     </div>
   </>
 );
-
-DefaultLayout.propTypes = {
-  children: PropTypes.node.isRequired,
-};
 
 export default DefaultLayout;

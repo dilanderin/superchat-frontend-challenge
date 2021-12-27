@@ -18,8 +18,8 @@ export const SelectField = ({ label, error, id, options, ...others }) => {
           id={id}
           {...others}
         >
-          {options.map((option, index) => (
-            <option key={index}>{option}</option>
+          {options?.map((option) => (
+            <option key={option.id}>{option.name}</option>
           ))}
         </select>
 
