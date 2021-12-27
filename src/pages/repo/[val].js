@@ -80,11 +80,13 @@ const RepositoryCard = ({ val }) => {
         </div>
       ) : null}
 
-      <Button small onClick={() => (window.location.href = details?.html_url)}>
-        <div className="flex items-center">
-          <GithubIcons.GoStar className="mr-2" /> Star the repository
-        </div>
-      </Button>
+      <a
+        className="w-fit bg-green-500 mt-10 hover:bg-green-400 text-white font-bold py-4 px-4 rounded flex items-center"
+        href={details?.html_url}
+        target="_blank"
+      >
+        <GithubIcons.GoStar className="mr-2" /> Star the repository
+      </a>
     </>
   ) : (
     <div>Loading...</div>

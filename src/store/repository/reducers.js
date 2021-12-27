@@ -4,7 +4,6 @@ const initialState = {
   loading: false,
   error: '',
   repoDetails: { contributors: [], details: [] },
-  repoList: null,
 };
 
 export default function (state = initialState, action) {

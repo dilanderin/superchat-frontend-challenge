@@ -22,12 +22,16 @@ export const loadRepoDetailsFailureAction = (message) => ({
 export const loadRepoDetails = (owner, repo) => async (dispatch) => {
   dispatch(loadRepoDetailsStartAction);
 
-  const [contributors, details] = await Promise.all([
+  await Promise.all([
     RepositoryService.fetchRepoContributors(owner, repo),
     RepositoryService.fetchRepository(owner, repo),
-  ]);
-
-  dispatch(loadRepoDetailsSuccessAction({ contributors, details }));
+  ])
+    .then(([contributors, details]) => {
+      dispatch(loadRepoDetailsSuccessAction({ contributors, details }));
+    })
+    .catch((error) => {
+      dispatch(loadRepoDetailsFailureAction(error.response.data));
+    });
 };
 
 // Actions for loading repos by user
